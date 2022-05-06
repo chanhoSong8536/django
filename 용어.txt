@@ -1,0 +1,14 @@
+템플릿상속
+
+자식템플릿에서 {%extends '부모템플릿'%}
+
+*부모템플릿에서 허용한 부분(블럭)만 자식에서 채워넣을 수 있음
+
+
+1.container : 양쪽여백
+2. mt-x	mb-x	(x:1~5) : 위여백, 아래여백
+3.text-start, text-end, text-center 왼쪽 오른쪽 가운데 정렬
+4.form-control : input, textarea 이쁘게
+5. row, col-lg-x
+-row : 12칸을나눔
+-col-lg-x : x칸씩 먹어요

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block noauth %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="container mt-5 mb-5">
+            <h1><b>로그인</b></h1>
+            <div class="mt-5">
+                <input type="text" name="uname" class="form-control" placeholder="INPUT USERNAME" style="font-weight: bold;">
+                <input type="password" name="upass" class="form-control mt-4" placeholder="INPUT PASSWORD" style="font-weight: bold;">
+            </div>
+            <div class="text-end mt-4">
+                <button class="btn btn-dark">LOGIN</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+

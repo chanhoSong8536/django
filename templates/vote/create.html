@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block con %}
+
+  
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container mt-5 mb-5">
+            <h1><b>토픽생성</b></h1>
+
+            <input type="text" name="sub" class="form-control mt-5" placeholder="TOPIC 제목을 입력하세요">
+            <textarea class="form-control mt-4" name="con" placeholder="TOPIC 에 관해서 간단하게 설명해주세요" style="height: 150px;"></textarea>
+
+            <div class="text-end mt-4">
+                <button class="btn btn-secondary" type="button" onclick="makesel()">보기생성</button>
+                <button class="btn btn-dark">토픽생성</button>
+            </div>
+
+            <div id="here" class="row mt-5">
+            </div>
+        </div>
+    </form>
+
+    <!-- <a href="/media/vote/22/05/간짜장.png" download>짜장좋아해</a> --> 다운로드가능
+
+    <script>
+        function makesel(){
+            d = document.getElementById("here");
+            n = document.createElement("div");
+            n.setAttribute("class", "col-lg-4 mt-5");
+            n.innerHTML = '<input type="text" name="cname" class="form-control" placeholder="보기이름입력">\
+                <input type="file" name="cpic" class="form-control mt-3 mb-3">\
+                <textarea placeholder="보기설명" name="ccom" class="form-control"></textarea>';
+            d.appendChild(n);
+        }
+    </script>
+
+{% endblock %}

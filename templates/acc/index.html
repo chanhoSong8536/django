@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block con %}
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">{{ user }}! WELCOME 💎 </h1>
+            <p class="col-md-8 fs-4">WELCOME! {{user}}🎈</p>
+            <a href=""><button class="btn btn-dark btn-lg" type="button" style="font-weight: bold;">CLICK</button></a>
+        </div>
+    </div>
+{% endblock %}
+{% block noauth %}
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">만나서 반갑습니다 ~~ </h1>
+            <p class="col-md-8 fs-4">WELCOME! {{user}}🎈</p>
+        </div>
+    </div>
+{% endblock %}

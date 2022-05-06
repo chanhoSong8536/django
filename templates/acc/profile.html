@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block con %}
+<div class="container mt-5 mb-5" style="font-size: 20px; font-weight: bold;">
+    <h1><b>프로필</b></h1>
+
+    <div class="text-center mt-5">
+        <img src="{{ user.getpic }}" class="rounded-circle" height="250px">
+    </div>
+
+    <div class="mb-3 mt-5">
+        <label class="form-label">USERNAME</label>
+        <input type="text" value="{{ user }}" disabled class="form-control" style="font-weight: bold;">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">AGE</label>
+        <input type="text" value="{{ user.age }}" style="font-weight: bold;" disabled class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">EMAIL</label>
+        <input type="text" value="{{ user.email }}" style="font-weight: bold;" disabled class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">COMMENT</label>
+        <textarea class="form-control" disabled style="font-weight: bold; height: 100px;">{{ user.comment }}</textarea>
+    </div>
+
+    <div class="text-end">
+        <a href="{% url 'acc:update' %}" class="btn btn-dark">정보수정</a>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            계정삭제
+          </button>
+          
+    </div>
+</div>
+
+<form method="post" action="{% url 'acc:delete' %}">
+    {% csrf_token %}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel">계정삭제 알림창</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <div>
+                        <h3><b>패스워드 확인</b></h3>
+                        <input name="pwck" class="form-control mt-3">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                <button type="button" class="btn btn-danger">삭제</button>
+                </div>
+            </div>
+            </div>
+        </div>
+</form>
+{% endblock %}
+
+
